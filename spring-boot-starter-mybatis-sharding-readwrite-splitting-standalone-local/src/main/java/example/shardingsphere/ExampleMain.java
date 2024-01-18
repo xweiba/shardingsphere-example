@@ -26,8 +26,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import java.sql.SQLException;
 
-@MapperScan("org.apache.shardingsphere.example.sharding.readwritesplitting.spring.boot.starter.mybatis.repository")
-@SpringBootApplication(scanBasePackages = {"org.apache.shardingsphere.example.sharding.readwritesplitting.spring.boot.starter.mybatis"})
+@MapperScan("example.shardingsphere.repository")
+@SpringBootApplication(scanBasePackages = {"example.shardingsphere"})
 public class ExampleMain {
 
     public static void main(final String[] args) throws SQLException {
