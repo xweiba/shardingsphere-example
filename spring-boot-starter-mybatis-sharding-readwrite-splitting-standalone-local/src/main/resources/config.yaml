@@ -15,10 +15,8 @@
 # limitations under the License.
 #
 
-# 5.4 版本后移除了默认数据源配置，将会自动识别。
+# 5.4 版本后移除了默认数据源配置，如果没设置单标，将会自动识别。
 # 原理应该是只有主库才会有所有的表，而子库应该只有需要分库的那些表
-# 如果需要手动指定默认数据源，可参考 https://github.com/apache/shardingsphere/issues/9524#issuecomment-1684903475
-#
 
 # 设置该库的名称
 databaseName: demo
@@ -84,7 +82,7 @@ rules:
     t_order:
       databaseStrategy:
         standard:
-          # 分片字段
+          # 分片字段，注意当没有分片键时会查询或删除所有的数据源，如果需要默认指定，可以使用hint模式，通过业务层进行分片确认。
           shardingColumn: user_id
           # 分片策略名称，具体分片策略定义在 spring.shardingsphere.rules
           # .sharding.sharding-algorithms 路径下
