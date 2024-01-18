@@ -82,7 +82,7 @@ rules:
     t_order:
       databaseStrategy:
         standard:
-          # 分片字段，注意当没有分片键时会查询或删除所有的数据源，如果需要默认指定，可以使用hint模式，通过业务层进行分片确认。
+          # 分片字段，注意当没有分片键时会查询或删除所有的数据源，此时读写分离会失效，如果需要默认指定，可以使用hint模式，通过业务层进行分片确认。
           shardingColumn: user_id
           # 分片策略名称，具体分片策略定义在 spring.shardingsphere.rules
           # .sharding.sharding-algorithms 路径下
